@@ -1,7 +1,9 @@
 # Fractal Terrain Generator
 ## A procedural generation tool written in Rust.
 
-<br>
+
+Microdocumentation is available [here](docs.md).
+
 
 ![UI screenshot](./imgs/UI.png)
 
@@ -33,9 +35,6 @@ After defining the sequence, a lot of meshes can be generated using different se
 ![smooth](/imgs/smooth.png)
 
 ---
-
-## Microdocumentation
-Available [here](docs.md).
 
 ## Features
 * Readable mesh thanks to fast Phong rendering.
