@@ -37,7 +37,14 @@ impl App {
 			// (0.0, MeshOperation::Smooth(0.4, 1)),
 
 			(0.0, MeshOperation::AddTriangle(5.0)),
-			(0.0, MeshOperation::FractalTerrain(6, 2.0, 2.0)),
+			// (0.0, MeshOperation::FractalTerrain(6, 2.0, 2.0)),
+
+			// (0.0, MeshOperation::AddTriangleGrid(10.0, 4)),
+			// (0.0, MeshOperation::FractalTerrain(5, 1.53, 2.0)),
+			// (0.0, MeshOperation::DisplaceRandom(0.2, [true; 3])),
+			// (0.0, MeshOperation::Smooth(1.0, 2)),
+			// (0.0, MeshOperation::FractalTerrain(2, 0.13, 2.0)),
+			// (0.0, MeshOperation::Smooth(1.0, 2)),
 		];
 		
 

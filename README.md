@@ -3,6 +3,10 @@
 
 <br>
 
+![UI screenshot](./imgs/UI.png)
+
+<br>
+
 ---
 
 The workflow consists of defining operations that are executed in sequence. An example of a mesh operations sequence:
@@ -12,9 +16,10 @@ The workflow consists of defining operations that are executed in sequence. An e
 4. Subdivide
 5. Smooth
 
-// todo: UI screenshot
 
-// todo: one screenshot per operation
+![Proces - part 1](./imgs/1.png)
+![Proces - part 2](./imgs/2.png)
+![Proces - part 3](./imgs/3.png)
 
 
 After defining the sequence, a lot of meshes can be generated using different seeds. Afterwards, the mesh can be exported to `.obj`.
@@ -22,6 +27,15 @@ After defining the sequence, a lot of meshes can be generated using different se
 <br>
 
 ---
+
+![wireframe](/imgs/wireframe.png)
+![flat](/imgs/flat.png)
+![smooth](/imgs/smooth.png)
+
+---
+
+## Microdocumentation
+Available [here](docs.md).
 
 ## Features
 * Readable mesh thanks to fast Phong rendering.

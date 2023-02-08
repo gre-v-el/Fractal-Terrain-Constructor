@@ -159,9 +159,9 @@ impl MeshOperation {
 	pub fn caption(&self) -> &str{
 		match self {
 			Self::AddTriangle(_) => "Add Triangle",
-			Self::AddTriSquare(_) => "Add Triangle Square",
+			Self::AddTriSquare(_) => "Add Square",
 			Self::AddTriangleGrid(_, _) => "Add Triangle Grid",
-			Self::AddTriSquareGrid(_, _) => "Add Triangle Square Grid",
+			Self::AddTriSquareGrid(_, _) => "Add Square Grid",
 			
 			Self::Subdivide(_) => "Subdivide",
 			Self::_SubdivideSmooth(_, _) => "Subdivide Smooth",
@@ -576,6 +576,7 @@ impl MeshOperation {
 	}
 }
 
+// todo: there are random (?) missing lines sometimes
 pub fn wireframe_indices(indices: &[u32]) -> Vec<u32> {
 	let mut set = HashSet::<(u32, u32)>::new();
 	let mut ret = Vec::<u32>::new();
@@ -583,22 +584,32 @@ pub fn wireframe_indices(indices: &[u32]) -> Vec<u32> {
 	for i in 0..(indices.len() as u32/3 as u32) {
 		let (i0, i1, i2) = (indices[(3*i+0) as usize], indices[(3*i+1) as usize], indices[(3*i+2) as usize]);
 
-		if !set.contains(&(i0.min(i1), i0.max(i1))) {
-			set.insert((i0.min(i1), i0.max(i1)));
-			ret.push(i0);
-			ret.push(i1);
-		}
-		if !set.contains(&(i1.min(i2), i1.max(i2))) {
-			set.insert((i1.min(i2), i1.max(i2)));
-			ret.push(i1);
-			ret.push(i2);
-		}
-		if !set.contains(&(i0.min(i2), i0.max(i2))) {
-			set.insert((i0.min(i2), i0.max(i2)));
-			ret.push(i0);
-			ret.push(i2);
-		}
+		// if !set.contains(&(i0.min(i1), i0.max(i1))) {
+		// 	set.insert((i0.min(i1), i0.max(i1)));
+		// 	ret.push(i0);
+		// 	ret.push(i1);
+		// }
+		// if !set.contains(&(i1.min(i2), i1.max(i2))) {
+		// 	set.insert((i1.min(i2), i1.max(i2)));
+		// 	ret.push(i1);
+		// 	ret.push(i2);
+		// }
+		// if !set.contains(&(i0.min(i2), i0.max(i2))) {
+		// 	set.insert((i0.min(i2), i0.max(i2)));
+		// 	ret.push(i0);
+		// 	ret.push(i2);
+		// }
+
+		set.insert((i0.min(i1), i0.max(i1)));
+		set.insert((i0.min(i2), i0.max(i2)));
+		set.insert((i2.min(i1), i2.max(i1)));
 	}
+
+	for (i_a, i_b) in set {
+		ret.push(i_a);
+		ret.push(i_b);
+	}
+
 
 	return ret;
 }
